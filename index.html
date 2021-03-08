@@ -121,34 +121,36 @@
 
 
 
-        let sixthirty = new Date();
-        sixthirty.setHours(6);
-        sixthirty.setMinutes(30);
-
-
-
-        let wokeUp = getCookie("wokeup");
-
-        let wokeUpDate = new Date();
-        wokeUpDate.setHours(wokeUp.split(":")[0]);
-        wokeUpDate.setMinutes(wokeUp.split(":")[1]);
-
-        let difference = (wokeUpDate - sixthirty);
-
-
-        let shiftedTime = new Date(new Date() - difference)
-
-
-
-
-
-
-        let hour = shiftedTime.getHours();
-        let meridian = hour > 12 ? "pm" : "am";
-        hour = hour % 12;
-
-
         let update = () => {
+
+            let sixthirty = new Date();
+            sixthirty.setHours(6);
+            sixthirty.setMinutes(30);
+
+
+
+            let wokeUp = getCookie("wokeup");
+
+            let wokeUpDate = new Date();
+            wokeUpDate.setHours(wokeUp.split(":")[0]);
+            wokeUpDate.setMinutes(wokeUp.split(":")[1]);
+
+            let difference = (wokeUpDate - sixthirty);
+
+
+            let shiftedTime = new Date(new Date() - difference)
+
+
+
+
+
+
+            let hour = shiftedTime.getHours();
+            let meridian = hour > 12 ? "pm" : "am";
+            hour = hour % 12;
+
+
+
             $("#woke_up").val(wokeUp)
 
             $("#time").text(hour + ":" + String(shiftedTime.getMinutes()).padStart(2, '0'))
