@@ -155,9 +155,12 @@
             $("#meridian").text(meridian)
         }
         $(document).ready(() => {
-
             update()
+            setInterval(() => {
+                update()
+            }, 15000)
         })
+
         $("#wokeupform").submit((e) => {
 
 
